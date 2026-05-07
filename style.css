@@ -127,6 +127,58 @@ p { margin: 0 0 1em; }
   font-size: 1.05rem;
   margin-top: 2px;
 }
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* ============================================================
+   SOCIAL LINKS (header + footer)
+   ============================================================ */
+.social-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--navy);
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+.social-links a:hover {
+  background: var(--paper-soft);
+  color: var(--vacation-blue-dark);
+  text-decoration: none;
+}
+.social-links a:focus-visible {
+  outline: 2px solid var(--vacation-blue);
+  outline-offset: 2px;
+}
+.social-links svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  display: block;
+}
+
+/* Hide social row in header below tablet to keep header compact */
+.header-right .social-links {
+  display: none;
+}
+@media (min-width: 720px) {
+  .header-right .social-links {
+    display: flex;
+  }
+}
 
 /* ============================================================
    HERO
@@ -719,6 +771,18 @@ p { margin: 0 0 1em; }
 .site-footer p { margin: 4px 0; }
 .site-footer a { color: rgba(255, 255, 255, 0.85); }
 .footer-small { font-size: 0.78rem; }
+.site-footer .social-links {
+  justify-content: center;
+  margin: 0 0 14px;
+  gap: 6px;
+}
+.site-footer .social-links a {
+  color: rgba(255, 255, 255, 0.82);
+}
+.site-footer .social-links a:hover {
+  color: var(--paper);
+  background: rgba(255, 255, 255, 0.1);
+}
 
 /* ============================================================
    TABLET (≥600px)
