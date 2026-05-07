@@ -658,6 +658,69 @@ p { margin: 0 0 1em; }
 }
 
 /* ============================================================
+   ABOUT (Meet Shontell)
+   ============================================================ */
+.about {
+  padding: 64px 0;
+  background: var(--paper-soft);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  max-width: 760px;
+  margin-inline: auto;
+  align-items: start;
+}
+.about-photo {
+  text-align: center;
+}
+.about-photo img {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+  border: 4px solid var(--paper);
+}
+.about-body p {
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin: 0 0 1em;
+}
+.about-lead {
+  font-size: 1.1rem;
+  color: var(--navy) !important;
+  font-weight: 500;
+  line-height: 1.5 !important;
+}
+.about-cta {
+  margin-top: 24px !important;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+.about-cta a {
+  color: var(--vacation-blue-dark);
+  font-weight: 600;
+}
+
+@media (min-width: 720px) {
+  .about-grid {
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+  }
+  .about-photo {
+    text-align: left;
+  }
+  .about-photo img {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* ============================================================
    CONTACT STRIP
    ============================================================ */
 .contact-strip {
