@@ -316,64 +316,127 @@ p { margin: 0 0 1em; }
 }
 
 /* ============================================================
-   VALUE PROPS
+   PROMISE + PROCESS (combined)
    ============================================================ */
-.value-props {
+.promise-process {
   padding: 64px 0;
   background: var(--paper-soft);
 }
-.value-grid {
+.section-headline {
+  font-size: 1.75rem;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.section-subhead {
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin: 0 auto 40px;
+  max-width: 540px;
+  font-weight: 500;
+}
+.promise-process-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 40px;
+  max-width: 1000px;
+  margin-inline: auto;
 }
-.value-card {
+.block-headline {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--vacation-blue-dark);
+  font-weight: 700;
+  margin: 0 0 18px;
+  text-align: left;
+}
+
+/* Promises (left column) */
+.promise-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.promise-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
   background: var(--paper);
-  padding: 28px;
-  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  border-radius: var(--radius-md);
   border: 1px solid var(--line);
   box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.value-card h2 {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
-  color: var(--vacation-blue-dark);
+.promise-list li:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
-.value-card p {
+.promise-check {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  margin-top: 2px;
+}
+.promise-check svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+}
+.promise-list h4 {
+  font-size: 1.05rem;
+  margin: 0 0 4px;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.promise-list p {
   margin: 0;
+  font-size: 0.93rem;
   color: var(--ink-soft);
+  line-height: 1.55;
 }
-.value-card em {
+.promise-list em {
   color: var(--navy);
   font-style: normal;
   font-weight: 600;
 }
 
-/* ============================================================
-   HOW IT WORKS
-   ============================================================ */
-.how-it-works {
-  padding: 64px 0;
-}
-.section-headline {
-  font-size: 1.75rem;
-  text-align: center;
-  margin-bottom: 36px;
-}
+/* Process (right column) — vertical timeline */
 .steps {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
-  max-width: 760px;
-  margin-inline: auto;
+  position: relative;
+}
+.steps::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 16px;
+  bottom: 16px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--vacation-blue) 0%, rgba(43, 127, 184, 0.25) 100%);
+  z-index: 0;
 }
 .steps li {
   display: flex;
   align-items: flex-start;
   gap: 18px;
+  position: relative;
+  z-index: 1;
 }
 .step-num {
   flex-shrink: 0;
@@ -386,16 +449,20 @@ p { margin: 0 0 1em; }
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  box-shadow: 0 0 0 4px var(--paper-soft);
 }
-.step-body h3 {
-  font-size: 1.1rem;
-  margin: 4px 0 6px;
+.step-body h4 {
+  font-size: 1.05rem;
+  margin: 6px 0 4px;
   color: var(--navy);
+  line-height: 1.3;
 }
 .step-body p {
   margin: 0;
+  font-size: 0.93rem;
   color: var(--ink-soft);
+  line-height: 1.55;
 }
 
 /* ============================================================
@@ -863,7 +930,6 @@ p { margin: 0 0 1em; }
   .field-row { grid-template-columns: 1fr 1fr; gap: 18px; }
   .seller-form { padding: 40px 36px; }
   .contact-options { flex-direction: row; justify-content: center; gap: 56px; }
-  .value-grid { grid-template-columns: 1fr 1fr; }
 }
 
 /* ============================================================
@@ -872,6 +938,12 @@ p { margin: 0 0 1em; }
 @media (min-width: 900px) {
   .hero .hero-headline { font-size: 3rem; }
   .section-headline { font-size: 2rem; }
-  .value-grid { grid-template-columns: repeat(3, 1fr); }
-  .steps { gap: 28px; }
+  .promise-process { padding: 80px 0; }
+  .promise-process-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .steps { gap: 24px; }
+  .promise-list { gap: 16px; }
 }
