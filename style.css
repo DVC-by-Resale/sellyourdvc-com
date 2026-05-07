@@ -218,19 +218,18 @@ p { margin: 0 0 1em; }
   line-height: 1.5;
 }
 /* ============================================================
-   TRUST STRIP (BBB)
+   TRUST STRIP (BBB) — sits inside promise-process section
    ============================================================ */
 .trust-strip {
-  background: var(--paper);
-  border-bottom: 1px solid var(--line);
-  padding: 16px 0;
-}
-.trust-strip .container {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 18px;
   flex-wrap: wrap;
+  max-width: 700px;
+  margin: 56px auto 0;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
 }
 .bbb-badge {
   display: inline-block;
@@ -921,8 +920,11 @@ p { margin: 0 0 1em; }
   .hero { padding: 88px 0 96px; }
   .hero .hero-headline { font-size: 2.6rem; }
   .hero-ctas { flex-direction: row; justify-content: center; }
-  .trust-strip { padding: 18px 0; }
-  .trust-strip .container { gap: 22px; }
+  .trust-strip {
+    gap: 22px;
+    margin-top: 64px;
+    padding-top: 48px;
+  }
   .bbb-badge img { height: 88px; }
   .trust-text { text-align: left; font-size: 1rem; }
   .trust-text span { font-size: 0.85rem; }
