@@ -1,6 +1,6 @@
 /**
  * sellyourdvc.com — landing page JS
- * Form validation + GA4 conversion event firing.
+ * Form validation + GA4 events + scroll reveal + sticky-CTA visibility.
  */
 
 (function () {
@@ -9,9 +9,10 @@
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* Scroll-to-top button */
   const scrollBtn = document.getElementById('scroll-top');
   if (scrollBtn) {
-    const SCROLL_THRESHOLD = 400;
+    const SCROLL_THRESHOLD = 500;
     const toggleScrollBtn = function () {
       if (window.scrollY > SCROLL_THRESHOLD) {
         scrollBtn.classList.add('is-visible');
@@ -26,7 +27,65 @@
     toggleScrollBtn();
   }
 
-  // GA4 event firing for phone/email click links (delegated)
+  /* Sticky mobile CTA — appears after the hero is mostly scrolled past,
+     hides when the form section enters view (form is visible, no need for sticky) */
+  const stickyCta = document.getElementById('sticky-cta');
+  if (stickyCta && 'IntersectionObserver' in window) {
+    const hero = document.querySelector('.hero');
+    const formSection = document.getElementById('form');
+    let heroOut = false;
+    let formIn = false;
+    const update = function () {
+      if (heroOut && !formIn) {
+        stickyCta.classList.add('is-visible');
+        stickyCta.setAttribute('aria-hidden', 'false');
+      } else {
+        stickyCta.classList.remove('is-visible');
+        stickyCta.setAttribute('aria-hidden', 'true');
+      }
+    };
+    if (hero) {
+      const heroObserver = new IntersectionObserver(function (entries) {
+        heroOut = !entries[0].isIntersecting;
+        update();
+      }, { threshold: 0, rootMargin: '-60% 0px 0px 0px' });
+      heroObserver.observe(hero);
+    }
+    if (formSection) {
+      const formObserver = new IntersectionObserver(function (entries) {
+        formIn = entries[0].isIntersecting;
+        update();
+      }, { threshold: 0.1 });
+      formObserver.observe(formSection);
+    }
+  }
+
+  /* Scroll reveal — auto-tag major sections with .reveal,
+     IntersectionObserver adds .is-visible when entering viewport */
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealTargets = document.querySelectorAll(
+      '.promise-process .container > *, ' +
+      '.testimonials .container > *, ' +
+      '.form-section .container > *, ' +
+      '.faq .container > *, ' +
+      '.about .container > *, ' +
+      '.contact-strip .container > *'
+    );
+    revealTargets.forEach(function (el) { el.classList.add('reveal'); });
+
+    const revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    revealTargets.forEach(function (el) { revealObserver.observe(el); });
+  }
+
+  /* GA4 event firing for phone/email click links (delegated) */
   document.addEventListener('click', function (e) {
     const target = e.target.closest('[data-event]');
     if (!target) return;
@@ -37,14 +96,12 @@
     }
   });
 
-  // Form submission: client validation, recaptcha check, GA4 event, then native submit
+  /* Form submission */
   const form = document.getElementById('seller-form');
   if (!form) return;
 
   form.addEventListener('submit', function (e) {
-    if (!form.checkValidity()) {
-      return;
-    }
+    if (!form.checkValidity()) return;
 
     if (typeof grecaptcha !== 'undefined') {
       const response = grecaptcha.getResponse();
