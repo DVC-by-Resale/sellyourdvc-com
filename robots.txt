@@ -1,0 +1,7 @@
+# PRELAUNCH: blocking all crawlers until sellyourdvc.com goes live.
+# On go-live, replace contents with:
+#   User-agent: *
+#   Allow: /
+#   Sitemap: https://sellyourdvc.com/sitemap.xml
+User-agent: *
+Disallow: /
