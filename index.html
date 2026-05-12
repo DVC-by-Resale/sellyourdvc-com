@@ -222,7 +222,7 @@
     <section id="form" class="form-section">
       <div class="container container-narrow">
         <h2 class="section-headline">Get started — no obligation, no upfront fees</h2>
-        <p class="form-subhead">Tell us about your contract. We'll get back to you within one business day with a fair-market estimate.</p>
+        <p class="form-subhead">Tell us about your contract. We'll get back to you within one business day and walk you through your options and pricing.</p>
 
         <form id="seller-form" action="https://www.dvcbyresale.com/sell.php" method="post" class="seller-form">
           <div class="field-row">
@@ -244,6 +244,36 @@
           <div class="field">
             <label for="phonenumber">Phone number <span class="required" aria-hidden="true">*</span></label>
             <input type="tel" id="phonenumber" name="phonenumber" required autocomplete="tel" placeholder="(555) 123-4567">
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="resort">Home resort <span class="required" aria-hidden="true">*</span></label>
+              <select id="resort" name="resort" required>
+                <option value="">Select your resort</option>
+                <option value="Animal Kingdom Lodge">Animal Kingdom Lodge</option>
+                <option value="Aulani — Ko'Olina">Aulani &mdash; Ko'Olina</option>
+                <option value="Bay Lake Tower at Contemporary">Bay Lake Tower at Contemporary</option>
+                <option value="Beach Club Villas">Beach Club Villas</option>
+                <option value="BoardWalk Villas">BoardWalk Villas</option>
+                <option value="Boulder Ridge Villas">Boulder Ridge Villas</option>
+                <option value="Copper Creek Villas &amp; Cabins">Copper Creek Villas &amp; Cabins</option>
+                <option value="Disneyland Hotel Villas">Disneyland Hotel Villas</option>
+                <option value="Grand Californian Hotel Villas">Grand Californian Hotel Villas</option>
+                <option value="Grand Floridian Villas">Grand Floridian Villas</option>
+                <option value="Hilton Head Island">Hilton Head Island</option>
+                <option value="Island Tower (Polynesian)">Island Tower (Polynesian)</option>
+                <option value="Old Key West">Old Key West</option>
+                <option value="Polynesian Villas &amp; Bungalows">Polynesian Villas &amp; Bungalows</option>
+                <option value="Saratoga Springs / Treehouses">Saratoga Springs / Treehouses</option>
+                <option value="Vero Beach">Vero Beach</option>
+                <option value="Other / Not sure">Other / Not sure</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="points">Points owned <span class="required" aria-hidden="true">*</span></label>
+              <input type="number" id="points" name="points" required placeholder="e.g., 200" min="1" max="10000" step="1" inputmode="numeric">
+            </div>
           </div>
 
           <input type="hidden" name="phonetypeid" value="4">

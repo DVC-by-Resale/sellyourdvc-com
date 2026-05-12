@@ -112,6 +112,19 @@
       }
     }
 
+    /* Pack resort + points into the referral field as a fallback,
+       so Shontell sees them in the lead email even if the backend
+       silently drops unknown fields. */
+    const referralEl = form.querySelector('input[name="referral"]');
+    const resortEl = form.querySelector('[name="resort"]');
+    const pointsEl = form.querySelector('[name="points"]');
+    if (referralEl) {
+      const parts = ['Sellyourdvc.com Landing'];
+      if (resortEl && resortEl.value) parts.push('Resort: ' + resortEl.value);
+      if (pointsEl && pointsEl.value) parts.push('Points: ' + pointsEl.value);
+      referralEl.value = parts.join(' | ');
+    }
+
     if (typeof gtag === 'function') {
       gtag('event', 'form_submit', {
         form_id: 'seller-form',

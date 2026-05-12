@@ -933,7 +933,8 @@ p { margin: 0 0 1em; }
   text-transform: uppercase;
 }
 .required { color: var(--gold); margin-left: 2px; }
-.field input {
+.field input,
+.field select {
   width: 100%;
   padding: 14px 16px;
   font-size: 1rem;
@@ -945,7 +946,8 @@ p { margin: 0 0 1em; }
   transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
 .field input::placeholder { color: var(--ink-muted); }
-.field input:focus {
+.field input:focus,
+.field select:focus {
   outline: none;
   border-color: var(--gold);
   background: var(--paper);
@@ -953,6 +955,23 @@ p { margin: 0 0 1em; }
 }
 .field input:invalid:not(:placeholder-shown):not(:focus) {
   border-color: #c0392b;
+}
+.field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b8873a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 42px;
+  cursor: pointer;
+}
+.field select:invalid {
+  color: var(--ink-muted);
+}
+.field select option {
+  color: var(--ink);
 }
 .recaptcha-wrap {
   margin: 18px 0 8px;
