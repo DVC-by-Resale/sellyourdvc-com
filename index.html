@@ -14,7 +14,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700&family=Arimo:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@400;700&family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 
@@ -429,6 +429,53 @@
       <span>Call</span>
     </a>
     <a href="#form" class="sticky-cta-form">Get my quote &rarr;</a>
+  </div>
+
+  <!-- Design variation switcher — preview tool, removed after Shontell picks -->
+  <div class="theme-switcher" id="theme-switcher" aria-label="Design preview switcher">
+    <button type="button" class="theme-switcher-toggle" id="theme-switcher-toggle" aria-expanded="false" aria-controls="theme-switcher-options">
+      <span class="theme-switcher-icon" aria-hidden="true">&#9680;</span>
+      <span class="theme-switcher-label">Design <span id="theme-switcher-current">B</span></span>
+      <span class="theme-switcher-chevron" aria-hidden="true">&#9662;</span>
+    </button>
+    <div class="theme-switcher-options" id="theme-switcher-options" hidden role="menu">
+      <button type="button" data-theme="a" class="theme-option" role="menuitem">
+        <span class="theme-option-letter">A</span>
+        <span class="theme-option-text">
+          <span class="theme-option-name">Brand-aligned</span>
+          <span class="theme-option-desc">Your main-site colors</span>
+        </span>
+      </button>
+      <button type="button" data-theme="b" class="theme-option" role="menuitem">
+        <span class="theme-option-letter">B</span>
+        <span class="theme-option-text">
+          <span class="theme-option-name">Editorial</span>
+          <span class="theme-option-desc">Cream + navy + gold</span>
+        </span>
+      </button>
+      <button type="button" data-theme="c" class="theme-option" role="menuitem">
+        <span class="theme-option-letter">C</span>
+        <span class="theme-option-text">
+          <span class="theme-option-name">Coastal Florida</span>
+          <span class="theme-option-desc">Sand + ocean + sunset</span>
+        </span>
+      </button>
+      <button type="button" data-theme="d" class="theme-option" role="menuitem">
+        <span class="theme-option-letter">D</span>
+        <span class="theme-option-text">
+          <span class="theme-option-name">Modern minimal</span>
+          <span class="theme-option-desc">White + deep teal</span>
+        </span>
+      </button>
+      <button type="button" data-theme="e" class="theme-option" role="menuitem">
+        <span class="theme-option-letter">E</span>
+        <span class="theme-option-text">
+          <span class="theme-option-name">Premium dark</span>
+          <span class="theme-option-desc">Navy + champagne</span>
+        </span>
+      </button>
+      <p class="theme-switcher-note">Preview tool &mdash; pick your favorite</p>
+    </div>
   </div>
 
   <script src="script.js"></script>

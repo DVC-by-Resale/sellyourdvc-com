@@ -355,7 +355,7 @@ p { margin: 0 0 1em; }
 .btn-primary {
   background: var(--gold-bright);
   color: var(--midnight);
-  box-shadow: 0 8px 24px rgba(232, 184, 90, 0.45);
+  box-shadow: 0 4px 14px rgba(232, 184, 90, 0.22);
   border-color: var(--gold);
 }
 .btn-primary .btn-sub {
@@ -370,7 +370,7 @@ p { margin: 0 0 1em; }
 .btn-primary:hover {
   background: #f5c560;
   color: var(--midnight);
-  box-shadow: 0 12px 32px rgba(232, 184, 90, 0.55);
+  box-shadow: 0 6px 18px rgba(232, 184, 90, 0.30);
   transform: translateY(-1px);
   text-decoration: none;
 }
@@ -1401,4 +1401,423 @@ p { margin: 0 0 1em; }
    ============================================================ */
 @media (max-width: 719px) {
   body { padding-bottom: 56px; }
+}
+
+/* ============================================================
+   DESIGN VARIATION THEMES — preview switcher
+   B (Editorial) is the default :root palette; A/C/D/E override.
+   ============================================================ */
+
+/* === A — Brand-aligned: exact hex values pulled from dvcbyresale.com === */
+/* Source CSS confirmed: #004fa3 (body blue), #004E7F (nav blue),         */
+/* #F7EF29 (yellow accent), #FBF9CE (yellow surface), #DFE6F9 (blue tile),*/
+/* #899bcf (soft blue-purple), Arimo as the brand font.                   */
+body.theme-a {
+  --font-display: 'Arimo', 'Arial', sans-serif;
+  --font-body: 'Arimo', 'Arial', sans-serif;
+  --cream: #FBF9CE;              /* her exact pale-yellow surface */
+  --cream-deep: #DFE6F9;         /* her exact pale-blue alt surface */
+  --paper: #ffffff;
+  --paper-warm: #FFFCD8;         /* her lighter yellow tone */
+  --ink: #004fa3;                /* her primary body blue */
+  --ink-soft: #444E7F;           /* her hover blue */
+  --ink-muted: #899bcf;          /* her soft blue-purple */
+  --midnight: #004E7F;           /* her nav band blue */
+  --midnight-deep: #003a5e;
+  --midnight-soft: #1f6a99;
+  --gold: #F7EF29;               /* her bright yellow link/accent */
+  --gold-light: #FBF9CE;
+  --gold-bright: #F7EF29;
+  --gold-deep: #C9C322;
+  --line: #DFE6F9;
+  --line-soft: #EAF2FA;
+  --vacation: #004fa3;
+  --shadow-gold: 0 6px 20px rgba(247, 239, 41, 0.35);
+}
+body.theme-a .site-header { background: rgba(255, 255, 255, 0.92); }
+body.theme-a .btn-primary:hover { background: #fff58a; }
+body.theme-a .btn-primary { box-shadow: 0 4px 14px rgba(247, 239, 41, 0.28); }
+body.theme-a .btn-primary:hover { box-shadow: 0 6px 18px rgba(247, 239, 41, 0.40); }
+body.theme-a .field input:focus,
+body.theme-a .field select:focus { box-shadow: 0 0 0 4px rgba(247, 239, 41, 0.25); }
+/* Arimo on her main site is heavier on headings — match the brand weight */
+body.theme-a h1,
+body.theme-a h2,
+body.theme-a h3,
+body.theme-a h4,
+body.theme-a .section-headline,
+body.theme-a .hero-headline { font-weight: 700; letter-spacing: -0.01em; }
+body.theme-a .hero-headline em { font-weight: 700; font-style: normal; color: var(--gold-bright); }
+/* Brand-A rhythm: alternating yellow body bg with two white sections */
+body.theme-a .promise-process,
+body.theme-a .faq { background: #ffffff; }
+/* On the white FAQ section, make the items themselves yellow so they pop —
+   mirrors her main site's alternating-row pattern */
+body.theme-a .faq-item { background: var(--cream); border-color: var(--cream-deep); }
+body.theme-a .faq-item:hover,
+body.theme-a .faq-item[open] { border-color: var(--midnight); }
+/* Question text stays navy on hover — yellow-on-yellow is unreadable */
+body.theme-a .faq-item summary:hover { color: var(--midnight); }
+/* Social icons in header — same fix; yellow on light blue is hard to see */
+body.theme-a .social-links a:hover { color: var(--midnight); }
+/* "Our commitments" / "The process" eyebrow labels — default --gold-deep
+   is dark mustard yellow on white, hardly visible. Use navy. */
+body.theme-a .block-headline { color: var(--midnight); }
+/* "Read all client testimonials" hover — gold on yellow section = invisible */
+body.theme-a .testimonials-cta a:hover {
+  color: var(--midnight);
+  border-bottom-color: var(--midnight);
+}
+/* FAQ +/× toggle is constructed from two crossed gold lines — make navy
+   so it shows against the yellow item background */
+body.theme-a .faq-item summary::after {
+  background-image:
+    linear-gradient(var(--midnight), var(--midnight)),
+    linear-gradient(var(--midnight), var(--midnight));
+}
+/* Ring around Shontell's portrait — blue not yellow */
+body.theme-a .about-photo::before { border-color: var(--midnight); }
+/* About-section links ("Call Shontell..." / "form above") hover */
+body.theme-a .about-cta a:hover {
+  color: var(--midnight);
+  border-bottom-color: var(--midnight);
+}
+body.theme-a .about-cta a { border-bottom-color: var(--midnight); }
+/* Header phone hover — soft blue-purple, not yellow */
+body.theme-a .header-phone:hover { color: var(--ink-muted); }
+/* Footer social icons — keep yellow on hover (dark footer = high contrast) */
+body.theme-a .site-footer .social-links a:hover { color: var(--gold-bright); }
+/* Process step-num circles: white inside, soft-blue ring, navy border */
+body.theme-a .step-num {
+  background: #ffffff;
+  box-shadow: 0 0 0 4px var(--cream-deep);
+  border-color: var(--midnight);
+}
+
+/* === C — Coastal Florida (sand + ocean + sunset, Cormorant Garamond + Lato) === */
+body.theme-c {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --cream: #f8eedb;
+  --cream-deep: #ecdcb5;
+  --paper: #fffaef;
+  --paper-warm: #fbecd1;
+  --ink: #2c3e50;
+  --ink-soft: #587084;
+  --ink-muted: #8aa3b8;
+  --midnight: #0e4f6e;
+  --midnight-deep: #08394f;
+  --midnight-soft: #2a6b8f;
+  --gold: #e89b5a;
+  --gold-light: #f0b478;
+  --gold-bright: #ffc88a;
+  --gold-deep: #c47536;
+  --line: #ddc8a0;
+  --line-soft: #e8dcc0;
+  --vacation: #2a6b8f;
+  --shadow-gold: 0 6px 20px rgba(232, 155, 90, 0.30);
+}
+body.theme-c .site-header { background: rgba(248, 238, 219, 0.92); }
+body.theme-c .btn-primary:hover { background: #ffb98a; }
+body.theme-c .btn-primary { box-shadow: 0 4px 14px rgba(232, 155, 90, 0.22); }
+body.theme-c .btn-primary:hover { box-shadow: 0 6px 18px rgba(232, 155, 90, 0.30); }
+body.theme-c .field input:focus,
+body.theme-c .field select:focus { box-shadow: 0 0 0 4px rgba(232, 155, 90, 0.20); }
+
+/* === D — Modern minimal (white + deep teal accent, Inter throughout) === */
+body.theme-d {
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --cream: #fafafa;
+  --cream-deep: #f0f0f0;
+  --paper: #ffffff;
+  --paper-warm: #fbfbfb;
+  --ink: #1f2937;
+  --ink-soft: #4b5563;
+  --ink-muted: #9ca3af;
+  --midnight: #111827;
+  --midnight-deep: #030712;
+  --midnight-soft: #374151;
+  --gold: #0f766e;
+  --gold-light: #14b8a6;
+  --gold-bright: #2dd4bf;
+  --gold-deep: #115e59;
+  --line: #e5e7eb;
+  --line-soft: #f3f4f6;
+  --vacation: #0f766e;
+  --shadow-gold: 0 6px 20px rgba(15, 118, 110, 0.25);
+}
+body.theme-d .site-header { background: rgba(250, 250, 250, 0.92); }
+body.theme-d .btn-primary:hover { background: #5eead4; }
+body.theme-d .btn-primary { box-shadow: 0 4px 14px rgba(45, 212, 191, 0.18); }
+body.theme-d .btn-primary:hover { box-shadow: 0 6px 18px rgba(45, 212, 191, 0.26); }
+body.theme-d .field input:focus,
+body.theme-d .field select:focus { box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.18); }
+
+/* === E — Premium dark (deep navy + champagne, DM Serif Display + DM Sans) === */
+body.theme-e {
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --cream: #0b1929;
+  --cream-deep: #16273e;
+  --paper: #1a2a40;
+  --paper-warm: #1f3553;
+  --ink: #f0e8d3;
+  --ink-soft: #c8c0b0;
+  --ink-muted: #8a8475;
+  --midnight: #050e1c;
+  --midnight-deep: #02080f;
+  --midnight-soft: #1f3553;
+  --gold: #d4af74;
+  --gold-light: #e8c896;
+  --gold-bright: #f0d4a0;
+  --gold-deep: #b48f54;
+  --line: #2a3d56;
+  --line-soft: #1f3148;
+  --vacation: #d4af74;
+  --shadow-gold: 0 6px 20px rgba(212, 175, 116, 0.30);
+}
+/* Theme E uses --midnight as a dark surface (correct semantics), so anywhere
+   --midnight was used as a TEXT color, override to use the light --ink.    */
+body.theme-e h1,
+body.theme-e h2,
+body.theme-e h3,
+body.theme-e h4,
+body.theme-e .section-headline,
+body.theme-e .promise-list,
+body.theme-e .promise-list em,
+body.theme-e .step-body h4,
+body.theme-e .trust-text,
+body.theme-e .testimonial-name,
+body.theme-e .testimonials-cta a,
+body.theme-e .back-cta h2,
+body.theme-e .faq-item summary,
+body.theme-e .about h2,
+body.theme-e .about-cta a,
+body.theme-e .form-section label,
+body.theme-e .field label,
+body.theme-e .header-phone,
+body.theme-e .footer-link,
+body.theme-e .social-links a {
+  color: var(--ink);
+}
+/* about-lead uses !important — must win specificity */
+body.theme-e .about-lead { color: var(--ink) !important; }
+body.theme-e a { color: var(--ink); }
+body.theme-e a:hover { color: var(--gold); }
+body.theme-e .brand,
+body.theme-e .brand:hover { color: var(--ink); }
+body.theme-e .site-header {
+  background: rgba(11, 25, 41, 0.92);
+  border-bottom-color: var(--line);
+}
+body.theme-e .btn-primary:hover { background: var(--gold-light); }
+body.theme-e .btn-primary { box-shadow: 0 4px 14px rgba(212, 175, 116, 0.20); }
+body.theme-e .btn-primary:hover { box-shadow: 0 6px 18px rgba(212, 175, 116, 0.28); }
+body.theme-e .field input:focus,
+body.theme-e .field select:focus { box-shadow: 0 0 0 4px rgba(212, 175, 116, 0.20); }
+/* Buttons keep dark text on the champagne bg — readable */
+body.theme-e .btn-primary,
+body.theme-e .sticky-cta-form { color: #050e1c; }
+body.theme-e .btn-primary .btn-sub { color: rgba(5, 14, 28, 0.7); }
+/* Dot pattern + radial highlights tinted to match champagne palette */
+body.theme-e .hero-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212, 175, 116, 0.20) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(31, 53, 83, 0.45) 0%, transparent 55%),
+    linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 50%, var(--midnight-soft) 100%);
+}
+body.theme-e .hero-bg::after {
+  background-image: radial-gradient(circle at 1px 1px, rgba(240, 212, 160, 0.08) 1px, transparent 0);
+}
+body.theme-e .page-hero::before {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212, 175, 116, 0.18) 0%, transparent 60%),
+    linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 100%);
+}
+
+/* ============================================================
+   PER-THEME HERO ACCENT TINTS
+   The default hero radial highlights are tinted editorial gold + blue.
+   Override per theme so each preview has on-palette glows.
+   ============================================================ */
+
+/* Theme A — yellow top tint, soft blue-purple bottom tint */
+body.theme-a .hero-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(247, 239, 41, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(137, 155, 207, 0.30) 0%, transparent 55%),
+    linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 50%, var(--midnight-soft) 100%);
+}
+body.theme-a .hero-bg::after {
+  background-image: radial-gradient(circle at 1px 1px, rgba(247, 239, 41, 0.10) 1px, transparent 0);
+}
+body.theme-a .page-hero::before {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(247, 239, 41, 0.18) 0%, transparent 60%),
+    linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 100%);
+}
+
+/* Theme C — coral top tint, ocean blue bottom tint */
+body.theme-c .hero-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232, 155, 90, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(42, 107, 143, 0.28) 0%, transparent 55%),
+    linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 50%, var(--midnight-soft) 100%);
+}
+body.theme-c .hero-bg::after {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 200, 138, 0.10) 1px, transparent 0);
+}
+body.theme-c .page-hero::before {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(232, 155, 90, 0.18) 0%, transparent 60%),
+    linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 100%);
+}
+
+/* Theme D — restrained teal top tint, neutral slate bottom */
+body.theme-d .hero-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45, 212, 191, 0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(55, 65, 81, 0.25) 0%, transparent 55%),
+    linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 50%, var(--midnight-soft) 100%);
+}
+body.theme-d .hero-bg::after {
+  background-image: radial-gradient(circle at 1px 1px, rgba(45, 212, 191, 0.07) 1px, transparent 0);
+}
+body.theme-d .page-hero::before {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(45, 212, 191, 0.14) 0%, transparent 60%),
+    linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 100%);
+}
+
+/* ============================================================
+   THEME SWITCHER COMPONENT — fixed preview tool, removable post-pick
+   ============================================================ */
+
+.theme-switcher {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  z-index: 60;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.85rem;
+}
+
+.theme-switcher-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 18px;
+  background: #0c1d36;
+  color: #fbf6ec;
+  border: 1px solid #1a3454;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.32);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.theme-switcher-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.42);
+}
+.theme-switcher-toggle:focus-visible {
+  outline: 2px solid #e8b85a;
+  outline-offset: 2px;
+}
+.theme-switcher-icon { font-size: 1.05rem; line-height: 1; }
+.theme-switcher-chevron {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  transition: transform 0.2s ease;
+}
+.theme-switcher[data-open="true"] .theme-switcher-chevron {
+  transform: rotate(180deg);
+}
+
+.theme-switcher-options {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  width: 300px;
+  background: #ffffff;
+  border: 1px solid #e6dcc6;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 24px 56px rgba(12, 29, 54, 0.22);
+}
+.theme-switcher-options[hidden] { display: none; }
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  color: #1a1f2e;
+  transition: background 0.12s ease;
+}
+.theme-option:hover { background: #fbf6ec; }
+.theme-option.is-active { background: #fbf6ec; }
+
+.theme-option-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #0c1d36;
+  color: #fbf6ec;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+}
+.theme-option.is-active .theme-option-letter {
+  background: #b8873a;
+}
+
+.theme-option-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.theme-option-name {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #1a1f2e;
+  line-height: 1.2;
+}
+.theme-option-desc {
+  font-size: 0.78rem;
+  color: #5c6478;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.theme-switcher-note {
+  margin: 4px 12px 6px;
+  padding-top: 6px;
+  border-top: 1px solid #f0e8d4;
+  font-size: 0.72rem;
+  color: #8a8f9c;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Mobile: lift switcher above the sticky CTA bar (which is ~56px tall) */
+@media (max-width: 719px) {
+  .theme-switcher { bottom: 72px; left: 12px; }
+  .theme-switcher-options { width: calc(100vw - 24px); max-width: 320px; }
 }
