@@ -160,6 +160,25 @@
   const form = document.getElementById('seller-form');
   if (!form) return;
 
+  /* Old Key West deed-expiration conditional field —
+     OKW is the only resort with two possible deed expiration years (2042 or 2057),
+     so reveal the year selector only when OKW is chosen, otherwise keep it hidden
+     and disabled so it never submits a stray value. */
+  const resortSelect = document.getElementById('resort');
+  const okwRow = document.getElementById('okw-expiration-row');
+  const okwSelect = document.getElementById('okw_expiration');
+  if (resortSelect && okwRow && okwSelect) {
+    const toggleOkwField = function () {
+      const isOkw = resortSelect.value === 'Old Key West';
+      okwRow.hidden = !isOkw;
+      okwSelect.disabled = !isOkw;
+      okwSelect.required = isOkw;
+      if (!isOkw) okwSelect.value = '';
+    };
+    resortSelect.addEventListener('change', toggleOkwField);
+    toggleOkwField();
+  }
+
   form.addEventListener('submit', function (e) {
     if (!form.checkValidity()) return;
 

@@ -920,6 +920,7 @@ p { margin: 0 0 1em; }
   grid-template-columns: 1fr;
   gap: 18px;
 }
+.field-row[hidden] { display: none; }
 .field {
   margin-bottom: 18px;
 }
@@ -977,6 +978,19 @@ p { margin: 0 0 1em; }
   margin: 18px 0 8px;
   display: flex;
   justify-content: center;
+}
+.field-hint {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+.field-okw {
+  animation: okw-reveal 280ms ease-out;
+}
+@keyframes okw-reveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .privacy-note {
   font-size: 0.78rem;
