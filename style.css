@@ -1771,6 +1771,94 @@ body.theme-e .page-hero::before {
     linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 100%);
 }
 
+/* === F — Brand · Coastal Teal: Theme A structure + #A8D2D2 teal accent.
+       Navy stays as the action/button color since teal is too pale on white. === */
+body.theme-f {
+  --font-display: 'Arimo', 'Arial', sans-serif;
+  --font-body: 'Arimo', 'Arial', sans-serif;
+  --cream: #DCEFEF;              /* soft teal surface */
+  --cream-deep: #DFE6F9;         /* her exact pale-blue alt surface */
+  --paper: #ffffff;
+  --paper-warm: #EDF7F7;
+  --ink: #004fa3;
+  --ink-soft: #444E7F;
+  --ink-muted: #899bcf;
+  --midnight: #004E7F;
+  --midnight-deep: #003a5e;
+  --midnight-soft: #1f6a99;
+  --gold: #A8D2D2;               /* the teal accent Shontell asked for */
+  --gold-light: #DCEFEF;
+  --gold-bright: #A8D2D2;
+  --gold-deep: #5C9999;
+  --line: #DFE6F9;
+  --line-soft: #EAF2FA;
+  --vacation: #004fa3;
+  --shadow-gold: 0 6px 20px rgba(168, 210, 210, 0.40);
+}
+body.theme-f .site-header { background: rgba(255, 255, 255, 0.92); }
+body.theme-f .btn-primary:hover { background: #c8e3e3; }
+body.theme-f .btn-primary { box-shadow: 0 4px 14px rgba(168, 210, 210, 0.40); }
+body.theme-f .btn-primary:hover { box-shadow: 0 6px 18px rgba(168, 210, 210, 0.50); }
+body.theme-f .field input:focus,
+body.theme-f .field select:focus { box-shadow: 0 0 0 4px rgba(168, 210, 210, 0.35); }
+body.theme-f h1,
+body.theme-f h2,
+body.theme-f h3,
+body.theme-f h4,
+body.theme-f .section-headline,
+body.theme-f .hero-headline { font-weight: 700; letter-spacing: -0.01em; }
+body.theme-f .hero-headline em { font-weight: 700; font-style: normal; color: var(--gold-bright); }
+/* Mirror A's alternating white-section rhythm */
+body.theme-f .promise-process,
+body.theme-f .faq { background: #ffffff; }
+body.theme-f .faq-item { background: var(--cream); border-color: var(--cream-deep); }
+body.theme-f .faq-item:hover,
+body.theme-f .faq-item[open] { border-color: var(--midnight); }
+body.theme-f .faq-item summary:hover { color: var(--midnight); }
+body.theme-f .social-links a:hover { color: var(--midnight); }
+body.theme-f .block-headline { color: var(--midnight); }
+body.theme-f .testimonials-cta a:hover { color: var(--midnight); border-bottom-color: var(--midnight); }
+body.theme-f .faq-item summary::after {
+  background-image:
+    linear-gradient(var(--midnight), var(--midnight)),
+    linear-gradient(var(--midnight), var(--midnight));
+}
+body.theme-f .about-photo::before { border-color: var(--midnight); }
+body.theme-f .about-cta a { border-bottom-color: var(--midnight); }
+body.theme-f .about-cta a:hover { color: var(--midnight); border-bottom-color: var(--midnight); }
+body.theme-f .header-phone:hover { color: var(--ink-muted); }
+body.theme-f .site-footer .social-links a:hover { color: var(--gold-bright); }
+body.theme-f .step-num {
+  background: #ffffff;
+  box-shadow: 0 0 0 4px var(--cream);
+  border-color: var(--midnight);
+}
+
+/* === G — Editorial · Soft Cream: Theme B structure + #FAFAC3 pale-cream accent.
+       Navy is the action/button color since cream is too pale on white. === */
+body.theme-g {
+  --cream: #FAFAC3;              /* the pale cream Shontell asked for */
+  --cream-deep: #f0e89c;
+  --paper: #ffffff;
+  --paper-warm: #FCFCDC;
+  --gold: #FAFAC3;
+  --gold-light: #FCFCDC;
+  --gold-bright: #FAFAC3;
+  --gold-deep: #C4B855;
+  --line: #ece7c2;
+  --line-soft: #f6f1d2;
+  --shadow-gold: 0 6px 20px rgba(250, 250, 195, 0.55);
+}
+body.theme-g .btn-primary:hover { background: #f5f598; }
+body.theme-g .btn-primary { box-shadow: 0 4px 14px rgba(250, 250, 195, 0.55); }
+body.theme-g .btn-primary:hover { box-shadow: 0 6px 18px rgba(250, 250, 195, 0.70); }
+body.theme-g .field input:focus,
+body.theme-g .field select:focus { box-shadow: 0 0 0 4px rgba(250, 250, 195, 0.55); }
+body.theme-g .hero-headline em { color: var(--gold-deep); }
+body.theme-g .testimonials-cta a:hover { color: var(--midnight); border-bottom-color: var(--midnight); }
+body.theme-g .about-cta a:hover { color: var(--midnight); border-bottom-color: var(--midnight); }
+body.theme-g .header-phone:hover { color: var(--gold-deep); }
+
 /* ============================================================
    PER-THEME HERO ACCENT TINTS
    The default hero radial highlights are tinted editorial gold + blue.
@@ -1822,6 +1910,38 @@ body.theme-d .hero-bg::after {
 body.theme-d .page-hero::before {
   background:
     radial-gradient(ellipse 70% 50% at 50% 0%, rgba(45, 212, 191, 0.14) 0%, transparent 60%),
+    linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 100%);
+}
+
+/* Theme F — soft teal top tint, blue-purple bottom tint */
+body.theme-f .hero-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(168, 210, 210, 0.28) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(137, 155, 207, 0.30) 0%, transparent 55%),
+    linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 50%, var(--midnight-soft) 100%);
+}
+body.theme-f .hero-bg::after {
+  background-image: radial-gradient(circle at 1px 1px, rgba(168, 210, 210, 0.12) 1px, transparent 0);
+}
+body.theme-f .page-hero::before {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(168, 210, 210, 0.20) 0%, transparent 60%),
+    linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 100%);
+}
+
+/* Theme G — pale cream top tint, soft warm bottom */
+body.theme-g .hero-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(250, 250, 195, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(196, 184, 85, 0.18) 0%, transparent 55%),
+    linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 50%, var(--midnight-soft) 100%);
+}
+body.theme-g .hero-bg::after {
+  background-image: radial-gradient(circle at 1px 1px, rgba(250, 250, 195, 0.10) 1px, transparent 0);
+}
+body.theme-g .page-hero::before {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(250, 250, 195, 0.18) 0%, transparent 60%),
     linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 100%);
 }
 

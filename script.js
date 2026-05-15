@@ -17,7 +17,7 @@
     const optionsMenu = document.getElementById('theme-switcher-options');
     const currentLabel = document.getElementById('theme-switcher-current');
     const themeButtons = optionsMenu.querySelectorAll('[data-theme]');
-    const VALID_THEMES = ['a', 'b', 'c', 'd', 'e'];
+    const VALID_THEMES = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
     const STORAGE_KEY = 'sellyourdvc-theme';
 
     const applyTheme = function (theme) {
