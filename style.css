@@ -1004,6 +1004,124 @@ p { margin: 0 0 1em; }
 }
 
 /* ============================================================
+   "What happens next" callout — surfaces both post-submit paths
+   (callback OR immediate self-serve listing) at the decision moment
+   ============================================================ */
+.next-step-callout {
+  margin: 28px 0 22px;
+  padding: 24px 22px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--cream);
+  position: relative;
+}
+.next-step-callout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold-bright) 50%, transparent 100%);
+}
+.next-step-heading {
+  text-align: center;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 16;
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--midnight);
+  margin: 0 0 18px;
+}
+.next-step-options {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+.next-step-option {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 2px;
+}
+.next-step-option strong {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 16;
+  font-size: 1.02rem;
+  color: var(--midnight);
+  line-height: 1.25;
+}
+.next-step-option span:not(.next-step-badge) {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.next-step-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-deep, var(--ink-soft));
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  margin-bottom: 2px;
+}
+.next-step-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.next-step-divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--line);
+}
+.next-step-divider span {
+  position: relative;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  background: var(--cream);
+  padding: 4px 8px;
+}
+.next-step-foot {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin: 16px 0 0;
+  font-style: italic;
+}
+@media (max-width: 640px) {
+  .next-step-options {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .next-step-divider {
+    min-height: 22px;
+  }
+  .next-step-divider::before {
+    top: 50%;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    height: 1px;
+    width: auto;
+  }
+}
+
+/* ============================================================
    FAQ — refined accordion
    ============================================================ */
 .faq {
@@ -1612,9 +1730,12 @@ body.theme-e .form-section label,
 body.theme-e .field label,
 body.theme-e .header-phone,
 body.theme-e .footer-link,
-body.theme-e .social-links a {
+body.theme-e .social-links a,
+body.theme-e .next-step-heading,
+body.theme-e .next-step-option strong {
   color: var(--ink);
 }
+body.theme-e .next-step-badge { color: var(--gold-light); }
 /* about-lead uses !important — must win specificity */
 body.theme-e .about-lead { color: var(--ink) !important; }
 body.theme-e a { color: var(--ink); }
