@@ -1771,42 +1771,44 @@ body.theme-e .page-hero::before {
     linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 100%);
 }
 
-/* === F — Brand · Coastal Teal: Theme A structure + #A8D2D2 teal accent.
-       Navy stays as the action/button color since teal is too pale on white. === */
+/* === F — Brand · Soft Yellow: Theme A structure + #f5f598 soft yellow accent,
+       with #FAFAC3 cream as the hover/secondary tint. === */
 body.theme-f {
   --font-display: 'Arimo', 'Arial', sans-serif;
   --font-body: 'Arimo', 'Arial', sans-serif;
-  --cream: #DCEFEF;              /* soft teal surface */
+  --cream: #FAFAC3;              /* cream surface / hover tint */
   --cream-deep: #DFE6F9;         /* her exact pale-blue alt surface */
   --paper: #ffffff;
-  --paper-warm: #EDF7F7;
+  --paper-warm: #FCFCDC;
   --ink: #004fa3;
   --ink-soft: #444E7F;
   --ink-muted: #899bcf;
   --midnight: #004E7F;
   --midnight-deep: #003a5e;
   --midnight-soft: #1f6a99;
-  --gold: #A8D2D2;               /* the teal accent Shontell asked for */
-  --gold-light: #DCEFEF;
-  --gold-bright: #A8D2D2;
-  --gold-deep: #5C9999;
+  --gold: #f5f598;               /* soft yellow primary accent */
+  --gold-light: #FCFCDC;
+  --gold-bright: #f5f598;
+  --gold-deep: #C4B855;
   --line: #DFE6F9;
   --line-soft: #EAF2FA;
   --vacation: #004fa3;
-  --shadow-gold: 0 6px 20px rgba(168, 210, 210, 0.40);
+  --shadow-gold: 0 6px 20px rgba(245, 245, 152, 0.55);
 }
 body.theme-f .site-header { background: rgba(255, 255, 255, 0.92); }
-body.theme-f .btn-primary:hover { background: #c8e3e3; }
-body.theme-f .btn-primary { box-shadow: 0 4px 14px rgba(168, 210, 210, 0.40); }
-body.theme-f .btn-primary:hover { box-shadow: 0 6px 18px rgba(168, 210, 210, 0.50); }
+body.theme-f .btn-primary:hover { background: #FAFAC3; }
+body.theme-f .btn-primary { box-shadow: 0 4px 14px rgba(245, 245, 152, 0.55); }
+body.theme-f .btn-primary:hover { box-shadow: 0 6px 18px rgba(245, 245, 152, 0.70); }
 body.theme-f .field input:focus,
-body.theme-f .field select:focus { box-shadow: 0 0 0 4px rgba(168, 210, 210, 0.35); }
+body.theme-f .field select:focus { box-shadow: 0 0 0 4px rgba(245, 245, 152, 0.55); }
 body.theme-f h1,
 body.theme-f h2,
 body.theme-f h3,
 body.theme-f h4,
 body.theme-f .section-headline,
 body.theme-f .hero-headline { font-weight: 700; letter-spacing: -0.01em; }
+/* Two-tone hero: main line near-white, emphasized phrase in soft cream — mirrors Theme A's white+yellow split */
+body.theme-f .hero-headline { color: #ffffff; }
 body.theme-f .hero-headline em { font-weight: 700; font-style: normal; color: var(--gold-bright); }
 /* Mirror A's alternating white-section rhythm */
 body.theme-f .promise-process,
@@ -1913,19 +1915,19 @@ body.theme-d .page-hero::before {
     linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 100%);
 }
 
-/* Theme F — soft teal top tint, blue-purple bottom tint */
+/* Theme F — soft yellow top tint, blue-purple bottom tint */
 body.theme-f .hero-bg {
   background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(168, 210, 210, 0.28) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245, 245, 152, 0.28) 0%, transparent 60%),
     radial-gradient(ellipse 60% 50% at 100% 100%, rgba(137, 155, 207, 0.30) 0%, transparent 55%),
     linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 50%, var(--midnight-soft) 100%);
 }
 body.theme-f .hero-bg::after {
-  background-image: radial-gradient(circle at 1px 1px, rgba(168, 210, 210, 0.12) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(245, 245, 152, 0.12) 1px, transparent 0);
 }
 body.theme-f .page-hero::before {
   background:
-    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(168, 210, 210, 0.20) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(245, 245, 152, 0.20) 0%, transparent 60%),
     linear-gradient(180deg, var(--midnight-deep) 0%, var(--midnight) 100%);
 }
 
