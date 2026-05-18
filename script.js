@@ -9,66 +9,6 @@
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* Theme switcher — preview design variations.
-     Persists user pick to localStorage; default theme is B (no class). */
-  const themeSwitcher = document.getElementById('theme-switcher');
-  if (themeSwitcher) {
-    const toggleBtn = document.getElementById('theme-switcher-toggle');
-    const optionsMenu = document.getElementById('theme-switcher-options');
-    const currentLabel = document.getElementById('theme-switcher-current');
-    const themeButtons = optionsMenu.querySelectorAll('[data-theme]');
-    const VALID_THEMES = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
-    const STORAGE_KEY = 'sellyourdvc-theme';
-
-    const applyTheme = function (theme) {
-      if (VALID_THEMES.indexOf(theme) === -1) theme = 'b';
-      VALID_THEMES.forEach(function (t) {
-        document.body.classList.remove('theme-' + t);
-      });
-      if (theme !== 'b') document.body.classList.add('theme-' + theme);
-      currentLabel.textContent = theme.toUpperCase();
-      themeButtons.forEach(function (btn) {
-        const isActive = btn.dataset.theme === theme;
-        btn.classList.toggle('is-active', isActive);
-        btn.setAttribute('aria-current', isActive ? 'true' : 'false');
-      });
-      try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
-    };
-
-    const setMenuOpen = function (open) {
-      optionsMenu.hidden = !open;
-      toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      themeSwitcher.setAttribute('data-open', open ? 'true' : 'false');
-    };
-
-    let savedTheme = 'b';
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) savedTheme = stored;
-    } catch (e) {}
-    applyTheme(savedTheme);
-
-    toggleBtn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      setMenuOpen(optionsMenu.hidden);
-    });
-
-    themeButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        applyTheme(btn.dataset.theme);
-        setMenuOpen(false);
-      });
-    });
-
-    document.addEventListener('click', function (e) {
-      if (!themeSwitcher.contains(e.target)) setMenuOpen(false);
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') setMenuOpen(false);
-    });
-  }
-
   /* Scroll-to-top button */
   const scrollBtn = document.getElementById('scroll-top');
   if (scrollBtn) {
