@@ -861,6 +861,91 @@ p { margin: 0 0 1em; }
 }
 
 /* ============================================================
+   SITEMAP — secondary page with grouped link index
+   ============================================================ */
+.sitemap-section-wrap {
+  padding: 64px 0 80px;
+  background: var(--cream);
+}
+.sitemap-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  max-width: 960px;
+  margin-inline: auto;
+}
+.sitemap-section h2 {
+  font-family: var(--font-display);
+  color: var(--midnight);
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin: 0 0 18px;
+  letter-spacing: -0.01em;
+}
+.sitemap-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.sitemap-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.sitemap-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.sitemap-list a {
+  font-family: var(--font-display);
+  color: var(--midnight);
+  font-size: 1.08rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 160ms ease, border-color 160ms ease;
+  align-self: flex-start;
+}
+.sitemap-list a:hover {
+  color: var(--gold-deep);
+  border-bottom-color: var(--gold-deep);
+}
+.sitemap-desc {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+.sitemap-machine-note {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  margin: 48px 0 0;
+  font-style: italic;
+  font-family: var(--font-display);
+}
+.sitemap-machine-note a {
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+.sitemap-machine-note a:hover {
+  color: var(--midnight);
+  border-bottom-color: var(--midnight);
+}
+@media (min-width: 760px) {
+  .sitemap-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+}
+
+/* ============================================================
    FORM — premium treatment for conversion
    ============================================================ */
 .form-section {

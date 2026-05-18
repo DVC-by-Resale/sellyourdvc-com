@@ -15,7 +15,10 @@ Back to:
 ## 2. `testimonials.html` (line 8)
 Same change as above.
 
-## 3. `robots.txt`
+## 3. `sitemap.html` (line 8)
+Same change as above.
+
+## 4. `robots.txt`
 Replace the entire file contents with:
 ```
 User-agent: *
