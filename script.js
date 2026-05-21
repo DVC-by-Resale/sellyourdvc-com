@@ -137,5 +137,9 @@
         page_location: window.location.href
       });
     }
+
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead');
+    }
   });
 })();
